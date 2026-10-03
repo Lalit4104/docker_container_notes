@@ -1,0 +1,85 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Virtual Machine vs Container</title>
+  <desc id="desc">A corrected diagram showing that a virtual machine includes a full guest operating system and a hypervisor, while a container shares the host operating system kernel and contains only the application and dependencies.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 30px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 700 22px Arial, sans-serif; fill: #1e293b; }
+      .label { font: 700 18px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 500 15px Arial, sans-serif; fill: #334155; }
+      .box { stroke-width: 2; rx: 18; }
+      .vm { fill: #dbeafe; stroke: #60a5fa; }
+      .container { fill: #dcfce7; stroke: #4ade80; }
+      .host { fill: #f8fafc; stroke: #94a3b8; }
+      .hardware { fill: #e2e8f0; stroke: #64748b; }
+      .app { fill: #fef3c7; stroke: #f59e0b; }
+      .kernel { fill: #e0f2fe; stroke: #38bdf8; }
+      .note { fill: #ecfeff; stroke: #67e8f9; }
+      .arrow { stroke: #475569; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" fill="#ffffff"/>
+  <text x="600" y="52" text-anchor="middle" class="title">Virtual Machine vs Container</text>
+
+  <!-- Left VM -->
+  <text x="260" y="100" text-anchor="middle" class="subtitle">Virtual Machine</text>
+
+  <rect x="60" y="130" width="400" height="500" class="box vm"/>
+
+  <rect x="120" y="175" width="280" height="90" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2" rx="12"/>
+  <text x="260" y="212" text-anchor="middle" class="label">App</text>
+  <text x="260" y="235" text-anchor="middle" class="small">Runs inside guest OS</text>
+
+  <rect x="120" y="285" width="280" height="90" fill="#dbeafe" stroke="#60a5fa" stroke-width="2" rx="12"/>
+  <text x="260" y="323" text-anchor="middle" class="label">Guest OS</text>
+  <text x="260" y="346" text-anchor="middle" class="small">Linux / Windows / etc.</text>
+
+  <rect x="120" y="395" width="280" height="90" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" rx="12"/>
+  <text x="260" y="433" text-anchor="middle" class="label">Hypervisor</text>
+  <text x="260" y="456" text-anchor="middle" class="small">Virtualizes hardware</text>
+
+  <rect x="90" y="535" width="340" height="70" class="box host"/>
+  <text x="260" y="578" text-anchor="middle" class="label">Host OS</text>
+
+  <rect x="110" y="615" width="300" height="58" class="box hardware"/>
+  <text x="260" y="651" text-anchor="middle" class="label">Hardware / Server</text>
+
+  <!-- Right Container -->
+  <text x="940" y="100" text-anchor="middle" class="subtitle">Container</text>
+
+  <rect x="720" y="130" width="400" height="500" class="box container"/>
+
+  <rect x="770" y="175" width="300" height="110" class="box app"/>
+  <text x="920" y="214" text-anchor="middle" class="label">App</text>
+  <text x="920" y="237" text-anchor="middle" class="small">Code + runtime + dependencies</text>
+
+  <rect x="770" y="305" width="300" height="100" class="box kernel"/>
+  <text x="920" y="345" text-anchor="middle" class="label">Shared Host OS Kernel</text>
+  <text x="920" y="368" text-anchor="middle" class="small">Linux kernel is shared</text>
+
+  <rect x="770" y="430" width="300" height="90" fill="#f0fdf4" stroke="#22c55e" stroke-width="2" rx="12"/>
+  <text x="920" y="470" text-anchor="middle" class="label">Container Runtime</text>
+  <text x="920" y="493" text-anchor="middle" class="small">Docker / containerd</text>
+
+  <rect x="760" y="535" width="320" height="70" class="box host"/>
+  <text x="920" y="578" text-anchor="middle" class="label">Host OS</text>
+
+  <rect x="780" y="615" width="280" height="58" class="box hardware"/>
+  <text x="920" y="651" text-anchor="middle" class="label">Hardware / Server</text>
+
+  <!-- Center arrow -->
+  <line x1="460" y1="380" x2="720" y2="380" class="arrow"/>
+  <text x="590" y="350" text-anchor="middle" class="small">Different isolation model</text>
+
+  <!-- Bottom notes -->
+  <rect x="470" y="690" width="260" height="42" class="box note"/>
+  <text x="600" y="718" text-anchor="middle" class="small">VM: full guest OS per VM</text>
+
+  <rect x="755" y="690" width="290" height="42" class="box note"/>
+  <text x="900" y="718" text-anchor="middle" class="small">Container: shares host kernel</text>
+</svg>
